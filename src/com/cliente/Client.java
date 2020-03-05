@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.Scanner;
 
 /**
- *
+ * Clase encargada de crear la conexión con el servidor por medio de Sockets.
  */
 public class Client
 {
@@ -21,10 +21,7 @@ public class Client
     {
         Scanner scn = new Scanner(System.in);
 
-        // getting localhost ip
         InetAddress ip = InetAddress.getLocalHost();
-
-        // establish the connection
         Socket s = new Socket(ip, ServerPort);
 
         // obtaining input and out streams
@@ -34,6 +31,9 @@ public class Client
 
 
         // sendMessage thread
+        /**
+         * Hilo encargado de enviar mensajes.
+         */
         Thread sendMessage = new Thread(new Runnable()
         {
             @Override
@@ -66,6 +66,9 @@ public class Client
         });
 
         // readMessage thread
+        /**
+         *  Hilo encargado de enviar mensajes.
+         */
         Thread readMessage = new Thread(new Runnable()
         {
             @Override
